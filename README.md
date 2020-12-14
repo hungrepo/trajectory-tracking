@@ -1,6 +1,6 @@
 ## Description
 
-This repo stores the code to simulate a trajectory tracking controller for unicycle-type robot
+This repo stores the code that simulates a trajectory tracking controller for unicycle-type robot
 
 ## Installation
 
