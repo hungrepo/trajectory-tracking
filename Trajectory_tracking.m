@@ -3,7 +3,7 @@
 % =========================================================================
 % This is trajectory tracking controller described in the thesis of Vanni-Vanni 
 
-% Coded by: Nguyen T. Hung
+% Coded by: Nguyen T. Hung - ISR/IST Lisbon
 % Contact: nt-hung.github.io
 
 
@@ -16,7 +16,7 @@ function TT_Controller
     close all;
 %% Initialization
     T = 200;                                                                                        % Simulation time
-    Ts = 0.1;                                                                                         % Sampling time
+    Ts = 0.1;                                                                                       % Sampling time
     N = T/Ts;
     time = [];
     % Initialize vehicle_position and orientation
@@ -36,7 +36,7 @@ for i = 0:N
     time(end+1) = i*Ts;
 % Step 1: update the desired trajectory
     x_traj(:,end+1) = [t; 10*sin(0.05*t)];                                          % desired trajectory
-    x_traj_dot(:,end+1) = [1; 0.5*cos(0.05*t)];                                     % derivative of trajectory
+    x_traj_dot(:,end+1) = [1; 0.5*cos(0.05*t)];                                     % derivative of the trajectory
 % Step 2: Compute trajectory tracking controller    
     u_vehicle(:,end+1) = TT_controllers(x_vehicle(:,end),x_traj(:,end),x_traj_dot(:,end),l_bound,u_bound);  
 % Step 3: Update the state of the vehicle    
@@ -47,7 +47,7 @@ end
     x_traj = x_traj';
     x_vehicle = x_vehicle';
     u_vehicle=u_vehicle';
-    save_to_base(1);
+ %   save_to_base(1);
 %% Plot
 plot(x_vehicle(:,1),x_vehicle(:,2));
 hold on;
